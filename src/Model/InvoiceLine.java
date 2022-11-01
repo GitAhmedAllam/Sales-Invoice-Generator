@@ -1,30 +1,31 @@
 package Model;
 
+
 public class InvoiceLine {
 
-    private String itemName;
-    private double itemPrice;
-    private int count;
+    private String Item;
+    private int Count;
+    private double Price;
     private InvoiceHeader Invoice;
 
 
     public InvoiceLine() {
     }
 
-    public InvoiceLine(int Number, String itemName, int count, double itemPrice) {
-        this.itemName = itemName;
-        this.count = count;
-        this.itemPrice = itemPrice;
+    public InvoiceLine(int Number, String Item, int Count, double Price) {
+        this.Item = Item;
+        this.Count = Count;
+        this.Price = Price;
     }
     public double getTotalLine()
     {
-        return itemPrice * count;
+        return Price * Count;
     }
 
-    public InvoiceLine( String itemName, int count, double itemPrice, InvoiceHeader Invoice) {
-        this.itemName = itemName;
-        this.count = count;
-        this.itemPrice = itemPrice;
+    public InvoiceLine(String Item, int Count, double Price, InvoiceHeader Invoice) {
+        this.Item = Item;
+        this.Count = Count;
+        this.Price = Price;
         this.Invoice = Invoice;
     }
 
@@ -36,31 +37,37 @@ public class InvoiceLine {
         return Invoice;
     }
 
-    public String getitemName() {
-        return itemName;
+
+    public String getItem() {
+        return Item;
     }
 
-    public int getcount() {
-        return count;
+    public int getCount() {
+        return Count;
     }
 
-    public double getitemPrice() {
-        return itemPrice;
+    public double getPrice() {
+        return Price;
     }
 
 
-    public void setitemName(String itemName) {
-        this.itemName = itemName;
+    public void setItem(String Item) {
+        this.Item = Item;
     }
 
-    public void setcount(int count) {
-        this.count = count;
+    public void setCount(int Count) {
+        this.Count = Count;
     }
 
-    public void setitemPrice(double itemPrice) {
-        this.itemPrice = itemPrice;
+    public void setPrice(double Price) {
+        this.Price = Price;
     }
+
+    @Override
+    public String toString() {
+        return "LineClass{" + "No.=" + Invoice.getInvoiceNum() + ", Item=" + Item + ", Count=" + Count + ", Price=" + Price + "}";
+    }
+
 
 
 }
-

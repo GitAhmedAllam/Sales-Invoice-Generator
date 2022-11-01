@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 
+
 public class InvoiceHeader {
     private int invoiceNum;
     private String invoiceDate;
@@ -12,65 +13,65 @@ public class InvoiceHeader {
 
     }
 
+
     public InvoiceHeader(int invoiceNum, String invoiceDate, String customerName) {
         this.invoiceNum = invoiceNum;
         this.invoiceDate = invoiceDate;
         this.customerName = customerName;
     }
 
+    public double getTotalOfInvoice()
+    {
+        double total =0.0;
+        for(InvoiceLine line : getLine())
+        {
+            total +=line.getTotalLine();
+        }
+        return total;
+    }
+
     /**
      *
      * @This is the ArrayLis code to hold the invoices details
      */
-//    Invoice1Num
-//{
-//Invoice1Date (DD/MM/YYYY), Customer1Name
-//Item1Name, Item1Price, Count1
-//Item2Name, Item2Price, Count2
-//Item3Name, Item3Price, Count3
-//.
-//.
-//.
-//}
-//
-//Invoice2Num
-//{
-//Invoice2Date (DD/MM/YYYY), Customer2Name
-//Item1Name, Item1Price, Count1
-//Item2Name, Item2Price, Count2
-//.
-//.
-//.
-//}
 
-/**
- *
- * Below The Get and Set for the private fields
- */
-    public int getinvoiceNum() {
+    public ArrayList<InvoiceLine> getLine() {
+        if(Line == null)
+        {
+            Line=new ArrayList<>();
+        }
+        return Line;
+    }
+
+
+    public int getInvoiceNum() {
         return invoiceNum;
     }
 
-    public String getinvoiceDate() {
+    public String getInvoiceDate() {
         return invoiceDate;
     }
 
-    public String getcustomerName() {
+    public String getCustomerName() {
         return customerName;
     }
 
-    public void setinvoiceNum(int invoiceNum) {
-        this.invoiceNum = invoiceNum;
+    public void setInvoiceNum(int Number) {
+        this.invoiceNum = Number;
     }
 
-    public void setinvoiceDate(String invoiceDate) {
-        this.invoiceDate = invoiceDate;
+    public void setInvoiceDate(String Date) {
+        this.invoiceDate = Date;
     }
 
-    public void setcustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomerName(String Customer) {
+        this.customerName = Customer;
     }
 
+    @Override
+    public String toString() {
+        return "InvoiceClass{" + "No.=" + invoiceNum + ", Date=" + invoiceDate + ", Customer=" + customerName + ", Line=" + Line + "}";
+    }
 
 
 }
